@@ -1,16 +1,19 @@
 package com.sparta.springcore.security;
 
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import com.sparta.springcore.model.User;
+import com.sparta.springcore.model.UserRole;
 
 public class UserDetailsImpl implements UserDetails {
 
 	private final User user;
+	private static final String ROLE_PREFIX = "ROLE_";
 
 	public UserDetailsImpl(User user) {
 		this.user = user;
@@ -52,6 +55,12 @@ public class UserDetailsImpl implements UserDetails {
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		return Collections.emptyList();
+		UserRole userRole = user.getRole();
+
+		SimpleGrantedAuthority authority = new SimpleGrantedAuthority(ROLE_PREFIX + userRole.toString());
+		Collection<GrantedAuthority> authorities = new ArrayList<>();
+		authorities.add(authority);
+
+		return authorities;
 	}
 }

@@ -34,6 +34,11 @@ public class UserController {
 		return "signup";
 	}
 
+	@GetMapping("/user/forbidden")
+	public String forbidden() {
+		return "forbidden";
+	}
+
 	// 회원 가입 요청 처리
 	@PostMapping("/user/signup")
 	public String registerUser(SignupRequestDto requestDto) {
