@@ -8,4 +8,6 @@ import com.sparta.springcore.model.User;
 
 public interface UserRepository extends JpaRepository<User, Long> {
 	Optional<User> findByUsername(String username);
+
+	Optional<User> findByKakaoId(Long kakaoId);
 }
