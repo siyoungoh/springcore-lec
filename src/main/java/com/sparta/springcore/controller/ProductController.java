@@ -47,6 +47,12 @@ public class ProductController {
 		return productService.getProducts(userId);
 	}
 
+	// (관리자용) 등록된 모든 상품 목록 조회
+	@GetMapping("/api/admin/products")
+	public List<Product> getAllProducts() {
+		return productService.getAllProducts();
+	}
+
 	// 신규 상품 등록
 	@PostMapping("/api/products")
 	public Product createProduct(@RequestBody ProductRequestDto requestDto,
