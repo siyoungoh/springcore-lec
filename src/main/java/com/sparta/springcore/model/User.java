@@ -17,22 +17,13 @@ import lombok.Setter;
 @NoArgsConstructor // 기본 생성자를 만들어줍니다.
 @Entity // DB 테이블 역할을 합니다.
 public class User extends Timestamped {
-
-	@Column(nullable = true)
-	private Long kakaoId;
-
-	public User(String username, String password, String email, UserRole role) {
-		this.username = username;
-		this.password = password;
-		this.email = email;
-		this.role = role;
-		this.kakaoId = null;
-	}
-
 	// ID가 자동으로 생성 및 증가합니다.
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Id
 	private Long id;
+
+	@Column(nullable = true)
+	private Long kakaoId;
 
 	// 반드시 값을 가지도록 합니다.
 	@Column(nullable = false)
@@ -54,5 +45,13 @@ public class User extends Timestamped {
 		this.email = email;
 		this.role = role;
 		this.kakaoId = kakaoId;
+	}
+
+	public User(String username, String password, String email, UserRole role) {
+		this.username = username;
+		this.password = password;
+		this.email = email;
+		this.role = role;
+		this.kakaoId = null;
 	}
 }
