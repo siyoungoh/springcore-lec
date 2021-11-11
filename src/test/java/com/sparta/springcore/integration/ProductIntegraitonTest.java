@@ -2,8 +2,6 @@ package com.sparta.springcore.integration;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.util.List;
-
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
@@ -12,6 +10,7 @@ import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.Page;
 
 import com.sparta.springcore.dto.ProductMypriceRequestDto;
 import com.sparta.springcore.dto.ProductRequestDto;
@@ -85,11 +84,15 @@ class ProductIntegrationTest {
 	@DisplayName("회원이 등록한 모든 관심상품 조회")
 	void test3() {
 		// given
-		// when
-		List<Product> productList = productService.getProducts(userId);
+		int page = 0;
+		int size = 10;
+		String sortBy = "id";
+		boolean isAsc = false;
 
-		// then
-		// 1. 전체 상품에서 테스트에 의해 생성된 상품 찾아오기 (상품의 id 로 찾음)
+		// when
+		Page<Product> productList = productService.getProducts(userId, page, size, sortBy, isAsc);
+
+		// then		// 1. 전체 상품에서 테스트에 의해 생성된 상품 찾아오기 (상품의 id 로 찾음)
 		Long createdProductId = this.createdProduct.getId();
 		Product foundProduct = productList.stream()
 			.filter(product -> product.getId().equals(createdProductId))
