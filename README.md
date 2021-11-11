@@ -1,7 +1,17 @@
 # scc-selectionshop
+
 SCC 내일배움캠프 2회차 수업자료 - 내셀랙션샵
 
+## 활용
+
+- Git clone 후 git checkout 을 사용해 원하는 commit 시점으로 이동 후 실행
+  - 변경사항이 발생할 경우 `git stash` 등등을 사용해 변경사항을 없애야 재이동이 가능함.
+    cf. [janeljs. “Git에서 커밋 시점 이동하는 법(Git Checkout).” Janeljs.log](https://velog.io/@janeljs/git-2)
+
+## 특정 커밋 내역만 다운로드 받아 사용하고 싶다면
+
 ### 옵션 1
+
 - [ ] 내 컴퓨터 IDE에서 Spring Initializr 로 프로젝트 만들기
 - [ ] 코드 복사 붙여넣기 (스니펫으로 사용)
 - [ ] `java/com/sparta/springcore/utils/NaverShopSearch.java`파일 내에 아래 부분을 발급받은 NaverSearch API 인증값으로 세팅
