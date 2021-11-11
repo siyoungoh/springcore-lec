@@ -40,7 +40,7 @@ public class ProductService {
 		return productRepository.findAll();
 	}
 
-	@Transactional // 메소드 동작이 SQL 쿼리문임을 선언합니다.
+	@Transactional // JPA 는 트랜잭션 안에서 데이터 변경해야함.
 	public Product createProduct(ProductRequestDto requestDto, Long userId) {
 		// 요청받은 DTO 로 DB에 저장할 객체 만들기
 		Product product = new Product(requestDto, userId);
@@ -48,7 +48,7 @@ public class ProductService {
 		return product;
 	}
 
-	@Transactional // 메소드 동작이 SQL 쿼리문임을 선언합니다.
+	@Transactional // JPA 는 트랜잭션 안에서 데이터 변경해야함.
 	public Product updateProduct(Long id, ProductMypriceRequestDto requestDto) {
 		Product product = productRepository.findById(id).orElseThrow(
 			() -> new NullPointerException("해당 아이디가 존재하지 않습니다.")
