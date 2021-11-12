@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.stereotype.Component;
 
 import com.sparta.springcore.dto.ItemDto;
 import com.sparta.springcore.model.Product;
@@ -18,7 +17,7 @@ import com.sparta.springcore.repository.UserRepository;
 import com.sparta.springcore.service.UserService;
 import com.sparta.springcore.utils.NaverShopSearch;
 
-@Component
+// @Component
 public class TestDataRunner implements ApplicationRunner {
 
 	private static final int MIN_PRICE = 100;
