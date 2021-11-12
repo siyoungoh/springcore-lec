@@ -1,3 +1,9 @@
+# h2
+myselectdb.lock.db
+myselectdb.trace.db
+myselectdb.mv.db
+
+# template
 HELP.md
 .gradle
 build/
